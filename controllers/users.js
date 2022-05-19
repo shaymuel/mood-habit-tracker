@@ -31,30 +31,29 @@ const createNewUser = async (req, res) => {
         phoneNumber: req.body.phoneNumber,
         password: req.body.password,
         habits: [{
-            habitName: req.body.habits.habitName,
-            build: req.body.habits.build,
-            quit: req.body.habits.quit,
-            daily: req.body.habits.daily,
-            weekly: req.body.habits.weekly,
-            monthly: req.body.habits.monthly,
-            yearly: req.body.habits.yearly,
-            timesPerGoalPeriod: req.body.habits.timesPerGoalPeriod,
-            countDone: req.body.habits.countDone,
-            backgroundColor: req.body.habits.backgroundColor,
+            habitName: req.body.habitName,
+            build: req.body.build,
+            quit: req.body.quit,
+            daily: req.body.daily,
+            weekly: req.body.weekly,
+            monthly: req.body.monthly,
+            yearly: req.body.yearly,
+            timesPerGoalPeriod: req.body.timesPerGoalPeriod,
+            countDone: req.body.countDone,
+            backgroundColor: req.body.backgroundColor,
             daysCompleted: [
-                req.body.habits.daysCompleted
+                req.body.daysCompleted
             ]
         }],
         chosenMoods: [{
-            day: req.body.chosenMoods.day,
-            moodName: req.body.chosenMoods.moodName
+            day: req.body.day,
+            moodName: req.body.moodName
         }]
     }
     const results = await connect.getUsersCollection("users").insertOne(user);
     if (results.acknowledged) {
         res.status(201).json(results);
         console.log('New User Added');
-        console.log(`New User Id: ${results.inserted}`);
     } else {
         res.status(500).json(results.error || 'Error occurred.');
     }
