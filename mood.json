@@ -1,0 +1,22 @@
+{
+    "mood1" : {
+    "moodName": "Happy",
+    "moodDescription" : "Feelings of joy, satisfaction, contentment, and fulfillment",
+    "moodColor" : "Bright Yellow",
+    "moodEmoji" : "U+1F604"
+    },
+    "mood2" : {
+    "moodName": "Sad",
+    "moodDescription" : "Feelings of gloom, unhappiness, sorrow, and grief",
+    "moodColor" : "Dark Blue",
+    "moodEmoji" : "U+1F622"
+    },
+    "mood3" : {
+    "moodName": "Relaxed",
+    "moodDescription" : "Feelings of calmness, peacefulness, and serenity",
+    "moodColor" : "Pastel Blue",
+    "moodEmoji" : "U+1F60C"
+    }
+    
+}
+  

@@ -1,0 +1,26 @@
+{
+  "user1" : {
+  "username": "shayla",
+  "email": "none1@none.com",
+  "phoneNumber": "0(123)456-7890",
+  "password": "drowssap",
+  "habits": [{
+    "habitName" : "Drink More Water",
+    "build" : true,
+    "quit" : false,
+    "daily" : true,
+    "weekly" : false,
+    "monthly" : false,
+    "yearly" : false,
+    "timesPerGoalPeriod": 8,
+    "countDone": 1,
+    "backgroundColor" : "#077187",
+    "daysCompleted" : [
+      "2022-05-18"
+    ]}],
+    "chosenMoods" : [{
+      "day": "2022-05-18",
+      "moodName": "Happy"
+    }]
+  }
+}
