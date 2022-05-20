@@ -49,10 +49,43 @@
                 "password": {
                   "example": "any"
                 },
-                "habits": {
+                "habitName": {
                   "example": "any"
                 },
-                "chosenMoods": {
+                "build": {
+                  "example": "any"
+                },
+                "quit": {
+                  "example": "any"
+                },
+                "daily": {
+                  "example": "any"
+                },
+                "weekly": {
+                  "example": "any"
+                },
+                "monthly": {
+                  "example": "any"
+                },
+                "yearly": {
+                  "example": "any"
+                },
+                "timesPerGoalPeriod": {
+                  "example": "any"
+                },
+                "countDone": {
+                  "example": "any"
+                },
+                "backgroundColor": {
+                  "example": "any"
+                },
+                "daysCompleted": {
+                  "example": "any"
+                },
+                "day": {
+                  "example": "any"
+                },
+                "moodName": {
                   "example": "any"
                 }
               }
@@ -69,12 +102,12 @@
         }
       }
     },
-    "/users/{username}": {
+    "/users/{id}": {
       "get": {
         "description": "",
         "parameters": [
           {
-            "name": "username",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -98,12 +131,12 @@
         }
       }
     },
-    "/moods/{moodName}": {
+    "/moods/{id}": {
       "get": {
         "description": "",
         "parameters": [
           {
-            "name": "moodName",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
