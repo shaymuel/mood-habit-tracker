@@ -28,25 +28,8 @@ const createNewUser = async (req, res) => {
         email: req.body.email,
         phoneNumber: req.body.phoneNumber,
         password: req.body.password,
-        habits: [{
-            habitName: req.body.habitName,
-            build: req.body.build,
-            quit: req.body.quit,
-            daily: req.body.daily,
-            weekly: req.body.weekly,
-            monthly: req.body.monthly,
-            yearly: req.body.yearly,
-            timesPerGoalPeriod: req.body.timesPerGoalPeriod,
-            countDone: req.body.countDone,
-            backgroundColor: req.body.backgroundColor,
-            daysCompleted: [
-                req.body.daysCompleted
-            ]
-        }],
-        chosenMoods: [{
-            day: req.body.day,
-            moodName: req.body.moodName
-        }]
+        habits: [req.body.habits],
+        chosenMoods: [req.body.chosenMoods]
     }
     const results = await connect.getUsersCollection("users").insertOne(user);
     if (results.acknowledged) {
