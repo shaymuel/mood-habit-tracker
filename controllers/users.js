@@ -30,7 +30,7 @@ const createNewUser = async (req, res) => {
         phoneNumber: req.body.phoneNumber,
         password: req.body.password,
         habits: [{
-            habitName: req.body.habitName,
+            habitName: req.body.habits.habitName,
             build: req.body.build,
             quit: req.body.quit,
             daily: req.body.daily,
