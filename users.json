@@ -1,18 +1,18 @@
 {
-  "user1" : {
-  "username": "shayla",
-  "email": "none1@none.com",
+  "user2" : {
+  "username": "melissa12",
+  "email": "none2@none.com",
   "phoneNumber": "0(123)456-7890",
-  "password": "drowssap",
+  "password": "somewords",
   "habits": [{
-    "habitName" : "Drink More Water",
+    "habitName" : "Go To Gym",
     "build" : true,
     "quit" : false,
-    "daily" : true,
-    "weekly" : false,
+    "daily" : false,
+    "weekly" : true,
     "monthly" : false,
     "yearly" : false,
-    "timesPerGoalPeriod": 8,
+    "timesPerGoalPeriod": 4,
     "countDone": 1,
     "backgroundColor" : "#077187",
     "daysCompleted" : [
