@@ -12,10 +12,8 @@ const getAllUsers = async (req, res) => {
 
 //get single user from database based on username
 const getUser = async (req, res) => {
-    const username = new ObjectId(req.params.username)
-    const results = connect.getUsersCollection("users").find({
-        _username: username
-    });
+    const contactId = new ObjectId(req.params.id)
+    const results = connect.getUsersCollection("users").find({_id: contactId});
     results.toArray().then((documents) => {
         res.status(200).json(documents[0]);
         console.log('One User Returned');

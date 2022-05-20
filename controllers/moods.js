@@ -10,8 +10,8 @@ const getAllMoods = async (req, res) => {
 }
 
 const getMood = async (req, res) => {
-    const moodName = new ObjectId(req.params.moodName)
-    const results = connect.getMoodsCollection("moods").find({_moodName: moodName});
+    const contactId = new ObjectId(req.params.id)
+    const results = connect.getMoodsCollection("moods").find({_id: contactId});
     results.toArray().then((documents) => {
       res.status(200).json(documents[0]);
       console.log('Mood Returned');
