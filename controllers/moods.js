@@ -1,25 +1,41 @@
-const connect = require('../db/connect');
-const ObjectId = require('mongodb').ObjectId;
+const db = require('../models');
+const Mood = db.moods;
 
-const getAllMoods = async (req, res) => {
-    const results =  await connect.getMoodsCollection("moods").find();
-    results.toArray().then((documents) => {
-        res.status(200).json(documents);
-        console.log('All Moods Returned');
+exports.getAllMoods = (req, res) => {
+  try {
+    Mood.find({})
+      .then((data) => {
+        res.send(data);
+      })
+      .catch((err) => {
+        res.status(500).send({
+          message: err.message || 'Some error occurred while retrieving users.'
+        });
       });
-}
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
 
-const getMood = async (req, res) => {
-    const contactId = new ObjectId(req.params.id)
-    const results = connect.getMoodsCollection("moods").find({_id: contactId});
-    results.toArray().then((documents) => {
-      res.status(200).json(documents[0]);
-      console.log('Mood Returned');
-    });
-
-}
-
-module.exports = {
-    getAllMoods,
-    getMood
-}
+exports.getMood = (req, res) => {
+  try {
+    const moodName = req.params.moodName;
+    Mood.find({
+        moodName: moodName
+      })
+      .then((data) => {
+        if (!data) res.status(404).send({
+          message: 'No Mood found with moodName: ' + moodName
+        });
+        else res.send(data[0]);
+      })
+      .catch((err) => {
+        res.status(500).send({
+          message: 'Error retrieving Mood with moodName=' + moodName,
+          error: err
+        });
+      });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};

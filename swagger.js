@@ -6,9 +6,9 @@ const doc = {
     description: "Keeps track of habits made and moods felt. Recorded by user",
     version: "1.0.0"
   },
-  host: "habit-mood-tracker.herokuapp.com",
+  host: "http://localhost:3000/",
   basePath: "/",
-  schemes: ["https"],
+  schemes: ["http"],
   tags: [
     {
       name: "moods",

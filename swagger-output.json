@@ -1,9 +1,9 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Habit & Mood Tracker API",
-    "description": "Keeps track of habits made and moods felt. Recorded by user",
-    "version": "1.0.0"
+    "description": "Keeping track of your habits and moods",
+    "version": "1.0.0",
+    "title": "Mood and Habit Tracker"
   },
   "host": "habit-mood-tracker.herokuapp.com",
   "basePath": "/",
@@ -48,7 +48,7 @@
         }
       }
     },
-    "/moods/{id}": {
+    "/moods/{moodName}": {
       "get": {
         "tags": [
           "moods"
@@ -60,9 +60,9 @@
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "moodName",
             "in": "path",
-            "description": "Mood id",
+            "description": "Name of the mood",
             "required": true,
             "type": "string"
           }
@@ -82,6 +82,9 @@
           },
           "404": {
             "description": "Mood not found"
+          },
+          "500": {
+            "description": "Other Error Caused"
           }
         }
       }
@@ -152,7 +155,7 @@
         }
       }
     },
-    "/users/{id}": {
+    "/users/{username}": {
       "get": {
         "tags": [
           "user"
@@ -164,9 +167,9 @@
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "username",
             "in": "path",
-            "description": "User id",
+            "description": "Username you are looking for",
             "required": true,
             "type": "string"
           }
@@ -183,6 +186,81 @@
           },
           "400": {
             "description": "Invalid User Id"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Update a user",
+        "description": "Add the username and body for the user",
+        "operationId": "updateUser",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "description": "Username you are wanting to update",
+            "required": true,
+            "type": "string"
+          },
+          {
+          "name": "body",
+          "in": "body",
+          "description": "Things you want to update in the user",
+          "required": true,
+          "type": "string",
+          "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/users"
+            }
+          }
+        }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successfully modified user"
+          },
+          "400": {
+            "description": "Invalid Username"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Delete a user",
+        "description": "Add the username of the user you want to delete",
+        "operationId": "deleteUser",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "description": "Username you are wanting to update",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successfully modified user"
+          },
+          "400": {
+            "description": "Invalid Username"
           },
           "404": {
             "description": "User not found"
@@ -207,17 +285,11 @@
         "password": {
           "type": "string"
         },
-        "habits": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/users_habits"
-          }
+        "habitTracker": {
+          "$ref": "#/definitions/users_habitTracker"
         },
         "chosenMoods": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/users_chosenMoods"
-          }
+          "$ref": "#/definitions/users_chosenMoods"
         }
       }
     },
@@ -238,7 +310,7 @@
         }
       }
     },
-    "users_habits": {
+    "users_habitTracker_habits": {
       "type": "object",
       "properties": {
         "habitName": {
@@ -276,19 +348,43 @@
         "daysCompleted": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "format": "date"
           }
+        }
+      }
+    },
+    "users_habitTracker": {
+      "type": "object",
+      "properties": {
+        "habits": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/users_habitTracker_habits"
+          }
+        }
+      }
+    },
+    "users_chosenMoods_moods": {
+      "type": "object",
+      "properties": {
+        "day": {
+          "type": "string",
+          "format": "date"
+        },
+        "moodName": {
+          "type": "string"
         }
       }
     },
     "users_chosenMoods": {
       "type": "object",
       "properties": {
-        "day": {
-          "type": "string"
-        },
-        "moodName": {
-          "type": "string"
+        "moods": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/users_chosenMoods_moods"
+          }
         }
       }
     }

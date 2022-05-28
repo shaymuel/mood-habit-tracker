@@ -4,7 +4,9 @@
   "email": "none2@none.com",
   "phoneNumber": "0(123)456-7890",
   "password": "somewords",
-  "habits": [{
+  "habitTracker": {
+    "habits": [
+    {
     "habitName" : "Go To Gym",
     "build" : true,
     "quit" : false,
@@ -16,11 +18,39 @@
     "countDone": 1,
     "backgroundColor" : "#077187",
     "daysCompleted" : [
-      "2022-05-18"
-    ]}],
-    "chosenMoods" : [{
+      "2022-05-18", 
+      "2022-05-19"
+      ] 
+     },
+     {
+      "habitName" : "Read 5 Chapters of the Book of Mormon",
+      "build" : true,
+      "quit" : false,
+      "daily" : false,
+      "weekly" : true,
+      "monthly" : false,
+      "yearly" : false,
+      "timesPerGoalPeriod": 5,
+      "countDone": 1,
+      "backgroundColor" : "#077187",
+      "daysCompleted" : [
+        "2022-05-18", 
+        "2022-05-19"
+        ] 
+       }
+    ]
+  },
+    "chosenMoods" : {
+      "moods" : [
+      {
       "day": "2022-05-18",
       "moodName": "Happy"
-    }]
+        },
+        {
+        "day": "2022-05-19",
+        "moodName": "Happy"
+        }
+       ]
+     }
   }
 }
