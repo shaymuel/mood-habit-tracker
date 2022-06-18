@@ -1,9 +1,8 @@
 {
-  "users" : {
-  "username": "melissa12",
-  "email": "none2@none.com",
+  "username": "shawn",
+  "email": "none3@none.com",
   "phoneNumber": "0(123)456-7890",
-  "password": "somewords",
+  "password": "",
   "habitTracker": {
     "habits": [
     {
@@ -53,4 +52,3 @@
        ]
      }
   }
-}

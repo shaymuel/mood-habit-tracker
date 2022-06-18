@@ -2,6 +2,7 @@ const db = require('../models');
 const User = db.users;
 const passwordValidation = require('../utilities/password-validation');
 
+//create a new user
 module.exports.createNewUser = (req, res) => {
   try {
     if (!req.body.username || !req.body.password) {
@@ -32,6 +33,7 @@ module.exports.createNewUser = (req, res) => {
   }
 };
 
+//get all users from database
 module.exports.getAllUsers = (req, res) => {
   try {
     User.find({})
@@ -49,6 +51,7 @@ module.exports.getAllUsers = (req, res) => {
   }
 };
 
+//get single user from database based on username
 module.exports.getUser = (req, res) => {
   try {
     const username = req.params.username;
@@ -67,6 +70,7 @@ module.exports.getUser = (req, res) => {
   }
 };
 
+//update a user by username 
 module.exports.updateUser = async (req, res) => {
   try {
     const username = req.params.username;
@@ -100,6 +104,7 @@ module.exports.updateUser = async (req, res) => {
   }
 };
 
+//delete a user by username
 module.exports.deleteUser = async (req, res) => {
   try {
     const username = req.params.username;

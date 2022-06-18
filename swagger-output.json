@@ -48,47 +48,6 @@
         }
       }
     },
-    "/moods/{moodName}": {
-      "get": {
-        "tags": [
-          "moods"
-        ],
-        "summary": "Get specific mood",
-        "operationId": "getMood",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "moodName",
-            "in": "path",
-            "description": "Name of the mood",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful operation",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/moods"
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid Mood Id"
-          },
-          "404": {
-            "description": "Mood not found"
-          },
-          "500": {
-            "description": "Other Error Caused"
-          }
-        }
-      }
-    },
     "/users": {
       "get": {
         "tags": [
@@ -250,7 +209,7 @@
           {
             "name": "username",
             "in": "path",
-            "description": "Username you are wanting to update",
+            "description": "Username you are wanting to delete",
             "required": true,
             "type": "string"
           }

@@ -1,18 +1,21 @@
 module.exports = (mongoose) => {
-    const moodSchema = mongoose.Schema({
-            moodName: {
-              type: String
-            },
-            moodDescription: {
-              type: String
-            },
-            moodColor: {
-              type: String
-            },
-            moodEmoji: {
-              type: String
-            }
-          });
-  
-    return mongoose.model('moods', moodSchema);
-  };
+  const Moods = mongoose.model(
+    'Moods',
+    mongoose.Schema({
+      moodName: {
+        type: String
+      },
+      moodDescription: {
+        type: String
+      },
+      moodColor: {
+        type: String
+      },
+      moodEmoji: {
+        type: String
+      }
+    })
+  );
+
+  return Moods;
+};
