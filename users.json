@@ -2,7 +2,7 @@
   "username": "shawn",
   "email": "none3@none.com",
   "phoneNumber": "0(123)456-7890",
-  "password": "",
+  "password": "hello",
   "habitTracker": {
     "habits": [
     {
